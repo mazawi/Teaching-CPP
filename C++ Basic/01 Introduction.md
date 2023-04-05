@@ -277,4 +277,4 @@ I study ‘C++’
 
 1.5	Write a programme that contains one cout only to print the following message:
 (“//”) is used to comment a line.
-
+-----
