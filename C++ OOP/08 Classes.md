@@ -643,7 +643,8 @@ int main()
 ```C++
 
 Example: Transportation
-![image](https://user-images.githubusercontent.com/45329653/230870350-a7dd5fdc-1c0c-4b84-bcdf-a2e84b5894be.png)
+
+<img width="697" alt="Screenshot 2023-04-10 at 13 15 10" src="https://user-images.githubusercontent.com/45329653/230872473-bae64959-3ac8-4ca9-811b-9856c0ae37c8.png">
 
 
 
