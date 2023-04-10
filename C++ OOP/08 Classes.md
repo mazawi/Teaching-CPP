@@ -297,4 +297,356 @@ If we could take the common attributes and methods and put them in one class (su
 <img width="726" alt="Screenshot 2023-04-10 at 11 28 06" src="https://user-images.githubusercontent.com/45329653/230850511-ce9a4d18-3aba-4416-b2ce-e69ec968f50a.png">
 
 
+Code  ‎8.9: A Circle class inherits attributes and methods from the Point class
+Without Inheritance
+```C++
+#include <iostream>
+using namespace std;
+ 
+class A { int x, y, z;};
+class B { int x, y, w; };
+class C { int x, y, v; };
+
+int main()
+{
+    A a1;
+    B b1;
+    C c1;
+}
+```
+
+With Inheritance
+```C++
+#include <iostream>
+using namespace std;
+ 
+class S { int x, y; };
+
+class A: S
+{ int  z; };
+
+class B: S
+{ int w; };
+
+class C: S
+{ int v; };
+
+int main(){
+    A a1;
+    B b1;
+    C c1;
+}
+```
+ Code  ‎8.10:
+Public access to class and members
+```C++
+#include <iostream>
+using namespace std;
+ 
+class S 
+{
+    public:
+    int x, y;
+    public:
+    void print()
+    {cout<<x<<", "<<y<<endl;}
+};
+class A:public S
+{
+    public:
+    int  z;
+};
+
+int main()
+{
+    A a1;
+    a1.z = 5;
+    a1.x = 7;
+    a1.y = 9;
+    a1.print();
+}
+```
+### 8.7.2	 Inheritance modes 
+It is the mode in which we want to inherit this sub class such as: public, private, or protected. 
+The derived class doesn’t inherit access to private data members. However, it does inherit a full parent object, which contains any private members which that class declares.
+Public mode: The public member of the base class will become public in the derived class and protected members of the base class will become protected in the derived class.
+Protected mode: both public members and protected members of the base class will become protected in the derived class.
+Private mode: both public members and protected members of the base class will become Private in the derived class.
+In all cases, private members in the base class cannot be directly accessed in the derived class
+Code  ‎8.11: Inheritance and access modes.
+Code
+```C++
+class A 
+{
+public:
+    int x;
+protected:
+    int y;
+private:
+    int z;
+};
+ 
+class B : public A
+{
+    // x is public
+    // y is protected
+    // z is not accessible from B
+};
+ 
+class C : protected A
+{
+    // x is protected
+    // y is protected
+    // z is not accessible from C
+};
+ 
+class D : private A    // 'private' is default for classes
+{
+    // x is private
+    // y is private
+    // z is not accessible from D
+};
+
+```
+### 8.7.3	Inheritance Types
+**1-	Single inheritance**
+![image](https://user-images.githubusercontent.com/45329653/230867878-2892d1a0-2000-4647-9e67-f70d628cff08.png)
+```C++
+class subclass_name : access_mode base_class
+{
+  // body of subclass
+};
+```
+![image](https://user-images.githubusercontent.com/45329653/230867929-3dd4d4af-9d02-49b4-81c3-469b2be71c38.png)
+
+Code  ‎8.12: Single Inheritance
+
+![image](https://user-images.githubusercontent.com/45329653/230868200-6cb05989-3152-4d79-aacd-70fcab2bac61.png)
+
+Code  ‎8.13: Single Inheritance Car Example.
+Code
+```C++
+#include<iostream>
+using namespace std;
+ 
+class Car 
+{
+  public:
+    Car()
+    { cout << "This is a Car Class"<<endl; }
+};
+ 
+class Truck : public Car 
+{
+ public:
+ Truck() { cout<<"This is a Truck class derived from Car class"<<endl; }
+};
+
+int main()
+{  
+    cout<<"Declaring a Car class\n";
+    Car c1;
+    cout<<"Declaring a Truck class\n";
+    Truck t1;
+}
+```
+Execution
+```C++
+Declaring a Car class
+This is a Car Class
+Declaring a Truck class
+This is a Car Class
+This is a Truck class derived from Car class
+Press any key to continue . . .
+```
+
+![image](https://user-images.githubusercontent.com/45329653/230868455-fa810153-0e09-4355-a40c-222504568249.png)
+
+**2-	Multiple Inheritance**
+
+<img width="381" alt="Screenshot 2023-04-10 at 12 55 20" src="https://user-images.githubusercontent.com/45329653/230868867-f59fa7c3-9a47-40fc-bf8b-0d6927fc0280.png">
+```C++
+class subclass_name : access_mode base_class1, access_mode base_class2, ....
+{
+  // body of subclass
+};
+```
+![image](https://user-images.githubusercontent.com/45329653/230868943-ab87517c-6f06-4828-97d0-6b76a65d1023.png)
+
+
+Code  ‎8.14: Multiple Inheritance. 
+Code
+```C++
+//This code is part of C++ course by Dr Mohammad Al-Azawi
+#include <iostream>
+using namespace std;
+class A1 {
+    public:
+    A1() //constructor
+    { cout << "This is Class A1\n";  }
+};
+class A2 {
+    public:
+    A2() //constructor
+    { cout << "This is Class A2\n";  }
+};
+class B: A1, A2 {
+    public:
+    B()  // Constructor
+    { cout << "This is Class B\n";   }
+};
+int main() {
+    cout<<"Declaration of an instance of Class B"<<endl;
+    B b;
+}
+```
+Execution
+```C++
+Declaration of an instance of Class B
+This is Class A1
+This is Class A2
+This is Class B
+```
+Code  ‎8.15: Multiple Inheritance Car Example
+Code
+```C++
+#include<iostream>
+using namespace std;
+
+class Car {
+  public:
+    Car(){ cout << "This is a Car Class"<<endl; }
+};
+class Vehicle {
+  public:
+    Vehicle() { cout << "This is a Vehicle Class"<<endl; }
+}; 
+class Truck : public Car, public Vehicle {
+  public:
+   Truck(){ cout<<"This is a Truck class derived from Car class"<<endl; }
+};
+
+int main(){  
+    cout<<"Declaring a Car class\n";
+    Car c1;
+    cout<<"Declaring a Vehicle class\n";
+    Vehicle v1;
+    cout<<"Declaring a Truck class\n";
+    Truck t1;
+}
+```
+Execution
+```C++
+Declaring a Car class
+This is a Car Class
+Declaring a Vehicle class
+This is a Vehicle Class
+Declaring a Truck class
+This is a Car Class
+This is a Vehicle Class
+This is a Truck class derived from Car class
+Press any key to continue . . .
+```
+
+**3-	Multilevel Inheritance**
+ 
+![image](https://user-images.githubusercontent.com/45329653/230869564-32087487-8015-4e8a-8022-174767992ed0.png)
+
+Code  ‎8.16: Multi-level Inheritance.
+Code
+```C++
+//This code is part of C++ course by Dr Mohammad Al-Azawi
+#include <iostream>
+using namespace std;
+class A1 {
+    public:
+    A1() //constructor
+    { cout << "This is Class A1\n";  }
+};
+class A2:A1 {
+    public:
+    A2() //constructor
+    { cout << "This is Class A2\n";  }
+};
+class B: A2 {
+    public:
+    B()  // Constructor
+    { cout << "This is Class B\n";   }
+};
+int main() {
+    cout<<"Declaration of an instance of Class B"<<endl;
+    B b;
+}
+```
+Execution
+```C++
+Declaration of an instance of Class B
+This is Class A1
+This is Class A2
+This is Class B
+```
+![image](https://user-images.githubusercontent.com/45329653/230869656-2372c780-c406-4fa6-bcfa-057d1dafcb13.png)
+
+**4-	Hierarchical Inheritance**
+<img width="396" alt="image" src="https://user-images.githubusercontent.com/45329653/230869912-63422e34-4ad5-4776-8848-acd5e56dc96f.png">
+
+**5-	Hybrid Inheritance**
+![image](https://user-images.githubusercontent.com/45329653/230870033-f62b3783-ca18-4ca7-b6a2-9947ba7ee92b.png)
+
+Code  ‎8.17: A Circle class inherits attributes and methods from the Point class
+Code
+```C++
+// C++ programme to demonstrate inherence 
+// This code is part of C++ courses by Dr Mohammad Al-Azawi
+#include <iostream>
+using namespace std;
+ 
+// Base class
+class Personnel
+{
+  public:
+    int ID;
+    string Name;
+    double calculate_salary(double basic_salary,double allowance )
+    {
+        return basic_salary+ allowance;
+    }          
+};
+  
+class Programmer: public Personnel
+{
+  public:
+  string field_of_programming;
+};
+
+class HR: public Personnel
+{
+  public:
+  string responsibilities;
+};
+
+class Amin: public Personnel
+{
+  public:
+  string department_to_run;
+};        
+
+int main()
+{
+    Programmer p1;
+    p1.ID = 1;
+    p1.Name ="Ahmed";
+    p1.field_of_programming ="Python";
+    
+    cout<<p1.field_of_programming<<endl;
+    cout<<p1.calculate_salary(500, 220)<<endl;
+         
+    return 0;
+}
+```C++
+
+Example: Transportation
+![image](https://user-images.githubusercontent.com/45329653/230870350-a7dd5fdc-1c0c-4b84-bcdf-a2e84b5894be.png)
+
+
 
