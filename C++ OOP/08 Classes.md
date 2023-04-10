@@ -647,4 +647,246 @@ Example: Transportation
 <img width="697" alt="Screenshot 2023-04-10 at 13 15 10" src="https://user-images.githubusercontent.com/45329653/230872473-bae64959-3ac8-4ca9-811b-9856c0ae37c8.png">
 
 
+## 8.8	Abstract Class 
+Abstraction is displaying only essential information and hiding the details. In other words, classes and functions from outside the class can access only the essential information and all other details and information are hidden. 
+For example, consider the car where the driver can start the car and drive it but he/she does not know what is happening in the engine or other parts of the car because they are hidden from him/her.
+Code  ‎8.18: 
+Code
+```C++
+#include <iostream>
+using namespace std;
+class Shape 
+{
+   public:
+      virtual double getArea() = 0;
+      void SetW(double W){ w = W;}
+      void SetH(double H){ h = H;}
+   protected:
+      double w;
+      double h;
+};
+class Rectangle: public Shape 
+{
+   public:
+      double getArea() { return (w * h); }
+};
+class Triangle: public Shape 
+{
+   public:
+      double getArea() { return (w * h)/2; }
+};
+class Square: public Shape 
+{
+   public:
+      double getArea() { return (w * h);   }
+};
+ 
+int main(void) 
+{
+   Rectangle Rect;
+   Triangle  Tri;
+   Square Sq;
+ 
+   Rect.SetW(5);
+   Rect.SetH(7);
+   cout << " Rectangle area: " << Rect.getArea() << endl;
+
+   Tri.SetW(5);
+   Tri.SetH(7);
+   cout << " Triangle area: " << Tri.getArea() << endl; 
+   
+   Sq.SetW(5);
+   Sq.SetH(5);
+   cout << " Square area: " << Sq.getArea() << endl; 
+
+   return 0;
+}
+```
+Execution
+```C++
+ Rectangle area: 35
+ Triangle area: 17.5
+ Square area: 25
+```
+## 8.9	Polymorphism 
+Using a function with the same name but with different functionality. 
+For example, the function double Area (double h, double w) can be used with different functionality depending on the shape class which uses it. In other words, if the shape is rectangle is should return ( h*w) and if it is triangle it should return (h*w/2). 
+ 
+## 8.10	Compile time 
+### 8.10.1	Function overloading
+Functions with the same name but with different number and/or type of parameters.
+Code  ‎8.19: 
+Code
+```C++
+#include <iostream>
+using namespace std;
+class A
+{
+    public:
+    void print(int x)
+    {
+        cout << "value of x is " << x << endl;
+    }
+      
+    void print(double x)
+    {
+        cout << "value of x is " << x << endl;
+    }
+      
+    void print(int x, int y)
+    {
+        cout << "values of x and y are " << x << ", " << y << endl;
+    }
+};
+  
+int main() {
+      
+    A a;
+    a.print(5);  
+    a.print(22.15);
+    a.print(25,35);
+} 
+```
+
+Execution
+```C++
+value of x is 5
+value of x is 22.15
+values of x and y are 25, 35
+```
+### 8.10.2	Operator overloading
+Redefining the operators to be applied to  specific variables of types defined in a class. For example, consider the class Coordinate which has the attributes x and y, we can redefine the operation + to be applied to variables of type Coordinates. 
+C++ allows operator overloading for most operations except: 
+1-	. (dot) 
+
+2-	:: 
+
+3-	?: 
+
+4-	sizeof 
+
+
+Code  ‎8.20: 
+Code
+```C++
+#include <iostream>
+using namespace std;
+ 
+class Coordinate {
+private:
+    int x, y;
+public:
+    Coordinate(int x1 = 0, int y1 = 0) {x = x1;   y = y1;}
+     
+    Coordinate operator + (Coordinate const &obj) {
+         Coordinate res;
+         res.x = x + obj.x;
+         res.y = y + obj.y;
+         return res;
+    }
+
+    Coordinate operator - (Coordinate const &obj) {
+         Coordinate res;
+         res.x = x - obj.x;
+         res.y = y - obj.y;
+         return res;
+    }
+    
+    void print() { cout <<"("<< x << ", " << y << ")\n"; }
+};
+ 
+int main()
+{
+    Coordinate c1(7, 5), c2(12, 6), c3;
+    c3 = c1 + c2;
+    c3.print();
+    c3 = c1 - c2;
+    c3.print();
+}
+```
+Execution
+```C++
+(19, 11)
+(-5, -1)
+```
+### 8.10.3	Pure Virtual Functions
+
+Code  ‎8.21: 
+Code
+```C++
+#include <iostream> 
+using namespace std;
+ 
+class Shape {
+   protected:
+      double W, H;
+   public:
+      Shape( double a = 0, double b = 0){
+         W = a;
+         H = b;
+      }
+     virtual double area() =0;
+};
+class Rectangle: public Shape {
+   public:
+      Rectangle( double a = 0, double b = 0):Shape(a, b) { }
+      
+      double area () { return (W * H);  }
+};
+
+class Triangle: public Shape {
+   public:
+      Triangle( double a = 0, double b = 0):Shape(a, b) { }
+      
+      double area () { return (W * H / 2);  }
+};
+
+int main() {
+   Rectangle r(10,7);
+   Triangle  t(10,7);
+   cout<< "Area of Triangle is: "<< t.area()<<endl;
+   cout<< "Area of Rectangle is: "<< r.area()<<endl;
+}
+```
+Execution
+```C++
+Area of Triangle is: 35
+Area of Rectangle is: 70
+```
+
+## 8.11	Friend Functions
+A friend function is a function (or a class) that is defined outside a class but has the ability to access the class members including protected and private data.
+Code  ‎8.22: 
+Code
+```C++
+#include <iostream> 
+using namespace std;
+ class A{
+     private:
+     int x;
+
+     friend int getx(A);
+ };
+int getx(A a)
+{
+    return a.x;
+}
+
+int main() {
+    A b;
+  cout<<getx(b)<<endl;
+}
+```
+
+
+## 8.12	Class access operators:
+1-	Class Member Access Operator (Dot ( . )): is used to access public members of the class
+
+2-	Arrow (->): If the object is a pointer to an object to access the class members, we can use the -> operator (->) instead of Asterisk (*) and Dot (.) Operators.
+
+3-	Scope resolution ( :: ) is used when we define a member function outside the class, the class should contain the prototype of the function inside.
+
+4-	Colon ( : ): is used in inheritance
+
+
 
