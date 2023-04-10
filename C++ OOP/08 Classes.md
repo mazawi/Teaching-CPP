@@ -756,7 +756,8 @@ values of x and y are 25, 35
 ```
 ### 8.10.2	Operator overloading
 Redefining the operators to be applied to  specific variables of types defined in a class. For example, consider the class Coordinate which has the attributes x and y, we can redefine the operation + to be applied to variables of type Coordinates. 
-C++ allows operator overloading for most operations except: 
+C++ allows operator overloading for most operations except:
+
 1-	. (dot) 
 
 2-	:: 
