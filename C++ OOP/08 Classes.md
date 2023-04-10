@@ -284,10 +284,10 @@ int main(){
 Execution
 ```C++
 The area is: 50.24
-  ```
+ ```
  
 
-8.7.1	Why Inheritance 
+### 8.7.1	Why Inheritance 
 Consider a group of Employees. We need to create classes for Programmers, Administered, HR,  and others. The methods Calculate_Salary(), Leaves(), etc are the same for all of the classes. In addition, some attributes such as ID, Name, etc. are common among the classes. If we create these classes avoiding inheritance then we have to write all of these functions in each of the classes.
 
 <img width="741" alt="Screenshot 2023-04-10 at 11 27 17" src="https://user-images.githubusercontent.com/45329653/230850363-1c8d1dd1-784c-4295-8ae9-873cb41258f7.png">
@@ -460,18 +460,16 @@ This is a Truck class derived from Car class
 Press any key to continue . . .
 ```
 
-![image](https://user-images.githubusercontent.com/45329653/230868455-fa810153-0e09-4355-a40c-222504568249.png)
-
 **2-	Multiple Inheritance**
 
 <img width="381" alt="Screenshot 2023-04-10 at 12 55 20" src="https://user-images.githubusercontent.com/45329653/230868867-f59fa7c3-9a47-40fc-bf8b-0d6927fc0280.png">
+
 ```C++
 class subclass_name : access_mode base_class1, access_mode base_class2, ....
 {
   // body of subclass
 };
 ```
-![image](https://user-images.githubusercontent.com/45329653/230868943-ab87517c-6f06-4828-97d0-6b76a65d1023.png)
 
 
 Code  ‎8.14: Multiple Inheritance. 
@@ -585,7 +583,6 @@ This is Class A1
 This is Class A2
 This is Class B
 ```
-![image](https://user-images.githubusercontent.com/45329653/230869656-2372c780-c406-4fa6-bcfa-057d1dafcb13.png)
 
 **4-	Hierarchical Inheritance**
 <img width="396" alt="image" src="https://user-images.githubusercontent.com/45329653/230869912-63422e34-4ad5-4776-8848-acd5e56dc96f.png">
