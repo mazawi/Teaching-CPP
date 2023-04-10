@@ -19,8 +19,10 @@ string Name;
 string Specialisation;
 int ID;
 };
+```
 Code ‎8 1:  define the student as a class
 Code
+```C++
 #include <iostream>
 using namespace std;
 class Student
