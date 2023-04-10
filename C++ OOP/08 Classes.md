@@ -290,11 +290,11 @@ The area is: 50.24
 8.7.1	Why Inheritance 
 Consider a group of Employees. We need to create classes for Programmers, Administered, HR,  and others. The methods Calculate_Salary(), Leaves(), etc are the same for all of the classes. In addition, some attributes such as ID, Name, etc. are common among the classes. If we create these classes avoiding inheritance then we have to write all of these functions in each of the classes.
 
-<img width="396" alt="image" src="https://user-images.githubusercontent.com/45329653/230849979-15549a71-9214-480a-af10-9235b5c6473c.png">
+<img width="741" alt="Screenshot 2023-04-10 at 11 27 17" src="https://user-images.githubusercontent.com/45329653/230850363-1c8d1dd1-784c-4295-8ae9-873cb41258f7.png">
 
-If we could take the common attributes and methods and put them in one class (superclass) and other classes can inherit these from it, then this will make the programme easier to understand, reduce redundancy, and reduce any chance of error.![image](https://user-images.githubusercontent.com/45329653/230850039-8b73818c-f247-4f0d-97cf-d17a8eec580f.png)
+If we could take the common attributes and methods and put them in one class (superclass) and other classes can inherit these from it, then this will make the programme easier to understand, reduce redundancy, and reduce any chance of error.
 
-<img width="398" alt="image" src="https://user-images.githubusercontent.com/45329653/230850102-bd265b97-7d57-4594-b114-d7ac09528d8b.png">
+<img width="726" alt="Screenshot 2023-04-10 at 11 28 06" src="https://user-images.githubusercontent.com/45329653/230850511-ce9a4d18-3aba-4416-b2ce-e69ec968f50a.png">
 
 
-    Circle c = Circle(5, 6, 4);
+
