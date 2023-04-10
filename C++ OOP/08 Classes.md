@@ -640,7 +640,7 @@ int main()
          
     return 0;
 }
-```C++
+```
 
 Example: Transportation
 
