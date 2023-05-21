@@ -51,8 +51,8 @@ Then install it and follow the recommendation in the installation wizard.
 
 ## 1.2 What is C++
 
-• General Purpose programming language
-• Compiled Programming language
+* General Purpose programming language
+* Compiled Programming language
 
 ## 1.3 Preparing your programme
 
@@ -153,16 +153,20 @@ Execution
 Hi there!, I am writing C++ code
 
 ### 1.8.2 #include
+![image](https://github.com/mazawi/Teaching-CPP/assets/45329653/b6409f10-003a-4eed-bd82-7573a0adcef6)
 
 - This instruction is used to include a pre-written library such as stdlib, iostream, etc.
 - If you are writing a programme that reads values from the keyboard or print values to the screen you should use iostream.
 
 ### 1.8.3 using namespace std
 
+ ![image](https://github.com/mazawi/Teaching-CPP/assets/45329653/86473e17-dee4-4bc2-8932-86ba0b90d6df)
+
 - A namespace is a declarative region that provides a scope to the identifiers (names of the types, function, variables etc) inside it .
 - This instruction is used to allow the programme understand cout and cin, otherwise you need to write them as std::count and std::cin.
 
 ### 1.8.4 main( ) function
+ ![image](https://github.com/mazawi/Teaching-CPP/assets/45329653/d812824c-36a2-4264-89a9-dd1366af0eb3)
 
 - Every C++ programme should contain this main function from which the execution starts
 - It can include all the code by itself, or it can call other functions that are written outside it.
