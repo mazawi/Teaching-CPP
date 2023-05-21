@@ -310,17 +310,19 @@ Welcome Mohammad
 1.1 Write a programme that reads an integer and prints it to the screen,
 
 1.2 Write a programme that contains one cout only to print the following message:
+```
 Hi my name is XYZ
 I study C++
 
 1.3 Write a programme that contains one cout only to print the following message:
+```
 A       B
 1       2
-
+```
 1.4 Write a programme that contains one cout only to print the following message:
-Hi my name is “XYZ”
+```Hi my name is “XYZ”
 I study ‘C++’
-
+```
 1.5 Write a programme that contains one cout only to print the following message
-(“//”) is used to comment a line.
------
+```(“//”) is used to comment a line.```
+
